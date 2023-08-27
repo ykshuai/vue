@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初始Vue</title>
+  <script src="../js/vue.js"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div id="root">
+    <h1>hello,{{name.toUpperCase()}},{{age}},{{Date.now()}}</h1>
+  </div>
+  <script type="text/javascript">
+
+    const x = new Vue({
+      el: '#root',
+      data: {
+        name: '余恺 ',
+        age: 18,
+
+      }
+    })
+  </script>
+</body>
+
+</html>
