@@ -7,6 +7,18 @@
   <script src="../../js/vue.js"></script>
 </head>
 <body>
-  
+  <div id="root">
+    <h1>学校名称:{{name}}</h1>
+    <h1>学校地址:{{address}}</h1>
+  </div>
 </body>
+<script>
+new Vue({
+  el:'#root',
+  data:{
+    name:'南京工业大学',
+    address:'南京',
+  }
+})
+</script>
 </html>
