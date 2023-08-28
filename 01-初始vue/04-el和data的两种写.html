@@ -4,8 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>el和data的两种写</title>
+  <script src="../../js/vue.js"></script>
 </head>
 <body>
-  
+  <div id="root">
+    <h1>你好，{{name}}</h1>
+  </div>
+
 </body>
+<script>
+  //el的第二种写法
+  /*const v = new Vue ({
+    data:{
+      name: '余恺',
+
+    }
+
+  })
+  v.$mount('#root');*/
+
+  //data的第二种写法
+  new Vue({
+    el:'#root',
+    // data:{
+    //   name:'余恺',
+    // }
+    data:function(){
+      return {
+        name:'余恺'
+      }
+    }
+  });
+</script>
 </html>
