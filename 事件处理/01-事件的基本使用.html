@@ -11,7 +11,9 @@
 <body>
   <div class="root">
     <h1>欢迎学习Vue</h1>
-    <button v-on:click="showInfo">点我提示信息</button>
+    <button v-on:click="showInfo1">点我提示信息1</button>
+    <!-- 这里的$event是用来站位的，方便穿参数 -->
+    <button v-on:click="showInfo2(666,$event)">点我提示信息2</button>
   </div>
 </body>
 <script>
@@ -23,12 +25,19 @@
     data: {
       name: '余恺',
     },
+    // 事件回调要用methods
     methods: {
-      showInfo:function(e) {
+      showInfo1:function(e) {
         // console.log(e.target.innerHTML);
         console.log(this);
         // alert("你好同学");
       },
+
+      showInfo2:function(number,event) {
+        // console.log(e.target.innerHTML);
+        console.log(number,event);
+        // alert("你好同学");
+      }
     }
   })
 </script>
