@@ -13,13 +13,18 @@
   </div>
 </body>
 <script>
+  /*Vue利用数据代理实现了响应式。具体工作方式:
+
+Vue会通过Object.defineProperty()给实例新增的属性做数据代理,创建对应的getter/setter。
+当访问实例属性时,进入了代理的getter中,getter会通知Vue监听这个属性。
+当修改实例属性时,进入了代理的setter中,setter会通知Vue触发相应的更新。*/
 const vm = new Vue({
   el:'#root',
   data:{
     name:'南京工业大学',
     address:'南京',
   }
-}) 
+})  
 console.log(vm);
 </script>
 </html>
