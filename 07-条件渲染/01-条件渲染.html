@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>条件渲染</title>
+  <script src="../../js/vue.js"></script>
+</head>
+<body>
+
+  <!-- 使用v-show可以被获取到，用v-if无法获取到 -->
+  <div class="root">
+    <!-- 用v-show做条件渲染 -->
+    <h1 v-show="false">欢迎来到南京工业大学浦江学院</h1><hr>
+    <!-- 用v-if做条件渲染  --> 
+    <!-- 直接将标签删除了 -->
+    <h1 v-if="true">欢迎来到南京工业大学浦江学院</h1>
+
+
+    <!-- v-if与template配合使用 可以快速的将一起展示的元素显示出来并且template不会像div占空间-->
+   <template v-if="n === 1">
+    <h2>南京</h2>
+    <h2>溧水区</h2>
+    <h2>浦江学院</h2>
+   </template>
+  </div>
+</body>
+<script>
+const vm =  new Vue({
+  el:'.root',
+  data:{
+    name:'南京工业大学浦江学院',
+  }
+})
+</script>
+</html>

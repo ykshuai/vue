@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <style>
+    .basic {
+      width: 1000px;
+      height: 400px;
+    }
+
+    .sad {
+      background-color: black;
+    }
+
+    .happy {
+      background-color: red;
+    }
+
+    .normal {
+      background-color: skyblue;
+    }
+
+    .font1 {
+      font-size: 30px;
+
+    }
+
+    .font2 {
+      font-size: 50px;
+    }
+
+    .font3 {
+      font-size: 60px;
+    }
+  </style>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>绑定class样式</title>
   <script src="../../js/vue.js"></script>
 </head>
+
 <body>
-  
+  <div id="root">
+    <!-- 绑定class样式--字符串写法，样式的类名不确定，需要动态指令 -->
+
+    <div class="basic" :class="mood" @click="changeMood">{{name}}</div><br><br>
+
+    <!-- 绑定class样式--数组写法，要绑定的样式不确定，名字也不确定  -->
+    <div class="basic happy" :class="classArr" @click="changeFont">{{name}}</div><br><br>
+
+    <!-- 绑定class样式--对象写法，要绑定的样式个数确定、名字也确定，但要动态的决定用不用  -->
+    <div class="basic normal" :class="classObj">{{name}}</div><br><br><br>
+    
+    <!-- 绑定style样式--数组写法 -->
+    <div class="basic" :style="styleObj">{{name}}</div>
+  </div>
 </body>
+<script>
+  const vm = new Vue({
+    el: '#root',
+    data: {
+      name: '你好',
+      mood: 'normal',
+      classArr: ['font1', 'font2', 'font3'],
+      classObj: {
+        font1: false,
+        font2: false,
+        font3: false,
+      },
+      styleObj: {
+        fontSize: '80px',
+        color: 'red',
+        backgroundColor: 'orange',
+      },
+    },
+    methods: {
+      changeMood() {
+        const arr = ['happy', 'sad', 'normal'];
+        const index = Math.floor(Math.random() * 3);
+        this.mood = arr[index];
+      },
+      changeFont() {
+        const arr = ['font1', 'font2', 'font3'];
+        const index = Math.floor(Math.random() * 3);
+        this.classArr = arr[index];
+      }
+    }
+  });
+</script>
+
 </html>
