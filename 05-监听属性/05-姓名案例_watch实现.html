@@ -21,33 +21,22 @@
     data: {
       xing: '张',
       ming: '三',
-
+      fullName: '张-三'
     },
-    computed: {
-      // 完整的写法
-      /* fullName: {
-        get() {
-          console.log('get被调用了');
-          return this.xing + '-' + this.ming
-        },
-
-        set(value) {
-
-          const arr =  value.split('');
-          this.xing = arr[0];
-          this.ming = arr[1];
-          
-        } 
-      }*/
-
-       // 简写
-     fullName(){
-      console.log('get被调用了');
-      return this.xing + '-' + this.ming
+    
+     watch:{
+      xing(newValue){
+        setTimeout(()=>{
+          console.log(this);
+          this.fullName = newValue + '-' + this.ming;
+        },1000)
+     },
+     ming(newValue){
+      this.fullName = this.xing + '-' + newValue;
      }
 
       
-    }
+     }
   })
 </script>
 
